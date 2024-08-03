@@ -3,7 +3,7 @@
 Module containing Flask API
 """
 from os import getenv
-from flask import Flask
+from flask import Flask, make_response, jsonify
 from models import storage
 from api.v1.views import app_views
 
@@ -17,6 +17,12 @@ app.register_blueprint(app_views)
 def close_db(obj):
     """Method that removes current session"""
     storage.close()
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    """Method that handles 404 status in JSON fromat"""
+    return make_response(jsonify({"error": "Not found"}), 404)
 
 
 if __name__ == "__main__":
