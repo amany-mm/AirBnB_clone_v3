@@ -4,11 +4,15 @@ Module containing Flask API
 """
 from os import getenv
 from flask import Flask, make_response, jsonify
+
 from models import storage
 from api.v1.views import app_views
 
-
+# Initiate the Flask app
 app = Flask(__name__)
+
+
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 app.register_blueprint(app_views)
 
@@ -21,7 +25,7 @@ def close_db(obj):
 
 @app.errorhandler(404)
 def page_not_found(error):
-    """Method that handles 404 status in JSON fromat"""
+    """Method that handles 404 status in JSON format"""
     return make_response(jsonify({"error": "Not found"}), 404)
 
 
