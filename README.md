@@ -14,6 +14,7 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * [File Descriptions](#file-descriptions)
 * [Usage](#usage)
 * [Examples of use](#examples-of-use)
+* [RESTful API](#RESTful-API)
 * [Bugs](#bugs)
 * [Authors](#authors)
 * [License](#license)
@@ -149,6 +150,9 @@ EOF  all  create  destroy  help  quit  show  update
 ** no instance found **
 (hbnb) quit
 ```
+## RESTful API
+![02078cd7f0573885c85a225c7436584a5afea1f9.png](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/02078cd7f0573885c85a225c7436584a5afea1f9.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240802%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240802T215319Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8dc3c4a62d376eff89986292e4e70ddf2806e37ec0a88496c534ba3a9687519a)
+
 
 ## Bugs
 No known bugs at this time. 
@@ -158,5 +162,8 @@ Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twit
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
 
 Second part of Airbnb: Joann Vuong
+
+RESTful API of Airbnb: Amany Mohammed - [Github](https://github.com/amany-mm)
+
 ## License
 Public Domain. No copy write protection. 
