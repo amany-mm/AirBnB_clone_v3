@@ -7,4 +7,6 @@ sudo apt-get install build-essential
 sudo apt-get install python3.8-dev
 sudo apt-get install libpython3-dev
 
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+
 pip3 install -r requirements.txt
