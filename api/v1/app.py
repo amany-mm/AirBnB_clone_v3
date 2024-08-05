@@ -4,6 +4,7 @@ Module containing Flask API
 """
 from os import getenv
 from flask import Flask, make_response, jsonify
+from flask_cors import CORS
 
 from models import storage
 from api.v1.views import app_views
@@ -15,6 +16,12 @@ app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 app.register_blueprint(app_views)
+
+# HTTP access control (CORS) CORS instance allowing:
+# CORS instance allowing: /* for 0.0.0.0
+# [0.0.0.0](any origin is allowed)
+# you can see this HTTP Response Header: < Access-Control-Allow-Origin: 0.0.0.0
+cors = CORS(app, resources={r"/api/*": {"origins": "0.0.0.0"}})
 
 
 @app.teardown_appcontext
