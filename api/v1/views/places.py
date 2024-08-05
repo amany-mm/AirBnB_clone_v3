@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Place module"""
 from flask import jsonify, abort, request, make_response
+from flasgger.utils import swag_from
 
 from api.v1.views import app_views
 from models import storage
@@ -13,6 +14,7 @@ from models.state import State
 
 @app_views.route('/cities/<string:city_id>/places',
                  methods=['GET'], strict_slashes=False)
+@swag_from('documentation/places/get.yml', methods=['GET'])
 def get_places(city_id):
     """Retrieve all Place objects in a city"""
     city = storage.get(City, city_id)
@@ -26,6 +28,7 @@ def get_places(city_id):
 
 @app_views.route('/places/<string:place_id>', methods=['GET'],
                  strict_slashes=False)
+@swag_from('documentation/places/get_id.yml', methods=['GET'])
 def get_place(place_id):
     """Retrieve Place object by id"""
     place = storage.get(Place, place_id)
@@ -38,6 +41,7 @@ def get_place(place_id):
 
 @app_views.route('/places/<string:place_id>', methods=['DELETE'],
                  strict_slashes=False)
+@swag_from('documentation/places/delete.yml', methods=['DELETE'])
 def delete_place(place_id):
     """Deletes a Place object by id"""
     place = storage.get(Place, place_id)
@@ -52,6 +56,7 @@ def delete_place(place_id):
 
 @app_views.route('/cities/<string:city_id>/places', methods=['POST'],
                  strict_slashes=False)
+@swag_from('documentation/places/post.yml', methods=['POST'])
 def create_place(city_id):
     """Create Place object"""
     city = storage.get(City, city_id)
@@ -82,6 +87,7 @@ def create_place(city_id):
 
 @app_views.route('/places/<string:place_id>', methods=['PUT'],
                  strict_slashes=False)
+@swag_from('documentation/places/put.yml', methods=['PUT'])
 def update_place(place_id):
     """Update Place object"""
     if not request.get_json():
@@ -103,6 +109,7 @@ def update_place(place_id):
 # POST (Search)
 @app_views.route('/places_search', methods=['POST'],
                  strict_slashes=False)
+@swag_from('documentation/places/search.yml', methods=['POST'])
 def search_places():
     """Search Place objects"""
     if request.get_json() is None:

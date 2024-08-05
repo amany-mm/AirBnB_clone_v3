@@ -5,6 +5,7 @@ Module containing Flask API
 from os import getenv
 from flask import Flask, make_response, jsonify
 from flask_cors import CORS
+from flasgger import Swagger
 
 from models import storage
 from api.v1.views import app_views
@@ -35,6 +36,16 @@ def page_not_found(error):
     """Method that handles 404 status in JSON format"""
     return make_response(jsonify({"error": "Not found"}), 404)
 
+
+# Configure Swagger (OpenAPI) documentation `http://127.0.0.1:5000/apidocs/`
+app.config['SWAGGER'] = {
+    'title': 'AirBnB clone - RESTful API',
+    'description': 'This is the api that was \
+        created for the hbnb restful api project,\
+    all the documentation will be shown below',
+    'uiversion': 3}
+
+Swagger(app)
 
 if __name__ == "__main__":
     host = getenv('HBNB_API_HOST', default='0.0.0.0')
